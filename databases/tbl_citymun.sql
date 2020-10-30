@@ -4,17 +4,17 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_citymun`;
 CREATE TABLE `tbl_citymun` (
-  `id` int(255) NOT NULL AUTO_INCREMENT,
-  `psgc_code` varchar(9),
-  `citymun_desc` varchar(50),
-  `reg_desc` varchar(2),
-  `prov_code` varchar(4),
-  `citymun_code` varchar(6),
-  `num_cases`  int unsigned DEFAULT 0,
-  `num_active` int unsigned DEFAULT 0,
-  `num_recoveries` int unsigned DEFAULT 0,
-  `num_deaths` int unsigned DEFAULT 0,
-  `num_surveillances` int unsigned DEFAULT 0,
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `psgc_code` varchar(9) NOT NULL,
+  `citymun_desc` varchar(50) NOT NULL,
+  `reg_desc` varchar(2) NOT NULL,
+  `prov_code` varchar(4) NOT NULL,
+  `citymun_code` varchar(6) NOT NULL,
+  `num_cases`  mediumint unsigned DEFAULT 0,
+  `num_active` mediumint unsigned DEFAULT 0,
+  `num_recoveries` mediumint unsigned DEFAULT 0,
+  `num_deaths` mediumint unsigned DEFAULT 0,
+  `num_surveillances` mediumint unsigned DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

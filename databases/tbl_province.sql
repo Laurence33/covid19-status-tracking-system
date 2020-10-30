@@ -4,13 +4,13 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_province`;
 CREATE TABLE `tbl_province` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `psgc_code` varchar(9),
-  `prov_desc` varchar(40),
-  `reg_code` varchar(2),
-  `prov_code` varchar(4),
-  `region` varchar(100),
-  `iso` varchar(6),
+  `id` int(2) NOT NULL AUTO_INCREMENT,
+  `psgc_code` varchar(9) NOT NULL,
+  `prov_desc` varchar(40) NOT NULL,
+  `reg_code` varchar(2) NOT NULL,
+  `prov_code` varchar(4) NOT NULL,
+  `region` varchar(100) NOT NULL,
+  `iso` varchar(6) NOT NULL,
   `num_cases`  int unsigned DEFAULT 0,
   `num_active` int unsigned DEFAULT 0,
   `num_recoveries` int unsigned DEFAULT 0,
