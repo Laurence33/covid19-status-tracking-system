@@ -43,25 +43,26 @@ function userExist($conn, $username) {
 }
 
 function loginUser($conn, $username, $pword) {
-    $userExists = userExist($conn, $username);
+    $userExists = userExist($conn, $username); // Call the function to check if the user exists in the database
 
-    if($userExists === false) {
-        header("location: ../login.php?login=error");
-        exit();
+    if($userExists === false) { // If the user does not exist
+        header("location: ../login.php?login=error"); // Redirect to login page and show and error.
+        exit(); // stop executing script
     }
 
-    $pwdHashed = $userExists['password'];
-    $checkPassword = password_verify($pword, $pwdHashed);
+    // If user exists, perform checks
+    $pwdHashed = $userExists['password']; // the actual hashed password from the database
+    $checkPassword = password_verify($pword, $pwdHashed); // compare the hashed password and the password inputted by the user on the login page
     
-    if($checkPassword == false) {
-        header("location: ../login.php?login=wongpass");
-        exit();
-    }else if( $checkPassword == true) {
-        session_start();
-        $_SESSION['username'] = $userExists['username'];
-        $_SESSION['userUid'] = $userExists['id'];
-        header("location: ../admin");
-        exit();
+    if($checkPassword == false) { // If the password does not match
+        header("location: ../login.php?login=wongpass"); // redirect to login page and show error
+        exit(); //stop executing script
+    }else if( $checkPassword == true) { // If the username and password matches with a record on the database, the login is successful
+        session_start(); // Start a session, to know who is logged in
+        $_SESSION['username'] = $userExists['username']; // save the username on the seesion
+        $_SESSION['userUid'] = $userExists['id']; // save the user ID in the session, just in case we will be needing it in the future
+        header("location: ../admin"); // finally, redirect the user to the admin home page.
+        exit(); // stop executing script
     }
 
 }
