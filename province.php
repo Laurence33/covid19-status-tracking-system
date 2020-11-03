@@ -1,19 +1,39 @@
 <?php
     include_once 'header.php';
 ?>
+
+<?php
+    include_once 'includes/dbh.inc.php';
+    include 'includes/functions.inc.php';
+
+    $prov_code = $_GET['code'];
+    $provinceRes = getProvince($conn, $prov_code);
+    if(!$provinceRes) {
+        echo '<h1>An error occured while getting Province</h1>';
+        exit();
+    }
+    $province = mysqli_fetch_array($provinceRes);
+
+    $citymunRes = getCitymuns($conn, $prov_code);
+    if(!$citymunRes) {
+        echo '<h1>An error occured while getting City/Municipalities</h1>';
+        exit();
+    }
+?>
+
 <span>
-    <a href="region.php/reg=reg_code">Region Description</a>
-    > ISO
+    <a href="region.php?code=<?php echo $province['reg_code']; ?>">Region Description</a>
+    > <?php echo $province['iso']; ?>
 </span>
 
 <br><br>
 <section>
-<h1>prov_des</h1>
-<h3>num_cases</h3>
-<h3>num_active</h3>
-<h3>num_recoveries</h3>
-<h3>num_deaths</h3>
-<h3>num_surveillances</h3>
+<h1><?php echo $province['prov_desc']; ?></h1>
+<h3>Cases: <?php echo $province['num_cases']; ?></h3>
+<h3>Active Cases: <?php echo $province['num_active']; ?></h3>
+<h3>Recoveries: <?php echo $province['num_recoveries']; ?></h3>
+<h3>Deaths: <?php echo $province['num_deaths']; ?></h3>
+<h3>Surveillances: <?php echo $province['num_surveillances']; ?></h3>
 </section>
 
 <br><br>
@@ -32,18 +52,24 @@
         </tr>
     </thead>
     <tbody>
+        <?php
+            while($row = mysqli_fetch_array($citymunRes)) {
+        ?>
         <tr>
             <td>
-            <a href="citymun.php?code=citymun_code">citymun_desc</a>
+            <a href="citymun.php?code=<?php echo $row['citymun_code']; ?>"><?php echo $row['citymun_desc']; ?></a>
             </td>
-            <td>psgc_code</td>
-            <td>reg_desc</td>
-            <td>num_cases</td>
-            <td>num_active</td>
-            <td>num_recoveries</td>
-            <td>num_deaths</td>
-            <td>num_surveillances</td>
+            <td><?php echo $row['psgc_code']; ?></td>
+            <td><?php echo $row['reg_desc']; ?></td>
+            <td><?php echo $row['num_cases']; ?></td>
+            <td><?php echo $row['num_active']; ?></td>
+            <td><?php echo $row['num_recoveries']; ?></td>
+            <td><?php echo $row['num_deaths']; ?></td>
+            <td><?php echo $row['num_surveillances']; ?></td>
         </tr>
+        <?php 
+            } // end of while loop
+        ?>
     </tbody>
 </table>
 

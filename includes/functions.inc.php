@@ -66,3 +66,215 @@ function loginUser($conn, $username, $pword) {
     }
 
 }
+
+function getRegions($conn) {
+    $sql = "SELECT * FROM tbl_region;";
+    $resultsData = mysqli_query($conn, $sql);
+    if(!$resultsData) {
+        // There's an error
+        return null;
+    }else {
+        return $resultsData;
+    }
+}
+function getRegion($conn, $reg_code) {
+    $sql = "SELECT * FROM tbl_region WHERE reg_code = ?;";
+    $stmt = mysqli_stmt_init($conn);
+
+    if(!mysqli_stmt_prepare($stmt, $sql)) {
+        // There's an error
+        return null;
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $reg_code);
+    mysqli_stmt_execute($stmt);
+
+    $resultsData = mysqli_stmt_get_result($stmt);
+    if(!$resultsData) {
+        // Region not found
+        return null;
+    } else {
+        return $resultsData;
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+function getProvinces($conn, $reg_code) {
+    $sql = "SELECT * FROM tbl_province WHERE reg_code = ?;";
+    $stmt = mysqli_stmt_init($conn);
+
+    if(!mysqli_stmt_prepare($stmt, $sql)) {
+        //There's an error
+        return null;
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $reg_code);
+    mysqli_stmt_execute($stmt);
+    
+    $resultsData = mysqli_stmt_get_result($stmt);
+    if(!$resultsData) {
+        return null;
+    }else {
+        return $resultsData;
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+function getProvince($conn, $prov_code) {
+    $sql = "SELECT * FROM tbl_province WHERE prov_code = ?;";
+    $stmt = mysqli_stmt_init($conn);
+
+    if(!mysqli_stmt_prepare($stmt, $sql)) {
+        // There's an error
+        return null;
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $prov_code);
+    mysqli_stmt_execute($stmt);
+
+    $resultsData = mysqli_stmt_get_result($stmt);
+    if(!$resultsData) {
+        // Region not found
+        return null;
+    } else {
+        return $resultsData;
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+function getCitymuns($conn, $prov_code) {
+    $sql = "SELECT * FROM tbl_citymun WHERE prov_code = ?;";
+    $stmt = mysqli_stmt_init($conn);
+
+    if(!mysqli_stmt_prepare($stmt, $sql)) {
+        //There's an error
+        return null;
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $prov_code);
+    mysqli_stmt_execute($stmt);
+    
+    $resultsData = mysqli_stmt_get_result($stmt);
+    if(!$resultsData) {
+        return null;
+    }else {
+        return $resultsData;
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+function getCitymun($conn, $citymun_code) {
+    $sql = "SELECT * FROM tbl_citymun WHERE citymun_code = ?;";
+    $stmt = mysqli_stmt_init($conn);
+
+    if(!mysqli_stmt_prepare($stmt, $sql)) {
+        // There's an error
+        return null;
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $citymun_code);
+    mysqli_stmt_execute($stmt);
+
+    $resultsData = mysqli_stmt_get_result($stmt);
+    if(!$resultsData) {
+        // Region not found
+        return null;
+    } else {
+        return $resultsData;
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+function getBarangays($conn, $citymun_code) {
+    $sql = "SELECT * FROM tbl_brgy WHERE citymun_code = ?;";
+    $stmt = mysqli_stmt_init($conn);
+
+    if(!mysqli_stmt_prepare($stmt, $sql)) {
+        //There's an error
+        return null;
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $citymun_code);
+    mysqli_stmt_execute($stmt);
+    
+    $resultsData = mysqli_stmt_get_result($stmt);
+    if(!$resultsData) {
+        return null;
+    }else {
+        return $resultsData;
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+function getBarangay($conn, $brgy_code) {
+    $sql = "SELECT * FROM tbl_brgy WHERE brgy_code = ?;";
+    $stmt = mysqli_stmt_init($conn);
+
+    if(!mysqli_stmt_prepare($stmt, $sql)) {
+        // There's an error
+        return null;
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $brgy_code);
+    mysqli_stmt_execute($stmt);
+
+    $resultsData = mysqli_stmt_get_result($stmt);
+    if(!$resultsData) {
+        // Region not found
+        return null;
+    } else {
+        return $resultsData;
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+function getCases($conn, $brgy_code) {
+    $sql = "SELECT * FROM tbl_case WHERE brgy_code = ?;";
+    $stmt = mysqli_stmt_init($conn);
+
+    if(!mysqli_stmt_prepare($stmt, $sql)) {
+        //There's an error
+        return null;
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $brgy_code);
+    mysqli_stmt_execute($stmt);
+    
+    $resultsData = mysqli_stmt_get_result($stmt);
+    if(!$resultsData) {
+        return null;
+    }else {
+        return $resultsData;
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+function getSurveillances($conn, $brgy_code) {
+    $sql = "SELECT * FROM tbl_sur WHERE brgy_code = ?;";
+    $stmt = mysqli_stmt_init($conn);
+
+    if(!mysqli_stmt_prepare($stmt, $sql)) {
+        //There's an error
+        return null;
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $brgy_code);
+    mysqli_stmt_execute($stmt);
+    
+    $resultsData = mysqli_stmt_get_result($stmt);
+    if(!$resultsData) {
+        return null;
+    }else {
+        return $resultsData;
+    }
+
+    mysqli_stmt_close($stmt);
+}
