@@ -278,3 +278,26 @@ function getSurveillances($conn, $brgy_code) {
 
     mysqli_stmt_close($stmt);
 }
+
+function getLatestCases($conn) {
+    $sql = "SELECT * FROM tbl_case ORDER BY id DESC LIMIT 10;";
+    $resultsData = mysqli_query($conn, $sql);
+    if(!$resultsData) {
+        // There's an error
+        return null;
+    }else {
+        return $resultsData;
+    }
+}
+
+function getLatestSurveillances($conn) {
+    $sql = "SELECT * FROM tbl_sur ORDER BY id DESC LIMIT 10;";
+    $resultsData = mysqli_query($conn, $sql);
+    if(!$resultsData) {
+        // There's an error
+        return null;
+    }else {
+        return $resultsData;
+    }
+}
+

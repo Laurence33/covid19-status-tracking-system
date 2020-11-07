@@ -14,16 +14,16 @@
         <div class="logo"><img src="img/logo.png" alt=""></div>
             <div class="title">Covid-19 Status Tracking System</div>
             <div class="sub-title">Login</div>
-                <form action="">
+                <form action="includes/login.inc.php" method="post">
                     <div class="fields">
                         <div class="username">
-                            <input type="username" class="user-input" placeholder="username" />
+                            <input type="username" class="user-input" placeholder="username" name="uname"/>
                         </div>
                         <div class="password">
-                            <input type="password" class="pass-input" placeholder="password" />
+                            <input type="password" class="pass-input" placeholder="password" name="pword"/>
                         </div>
                     </div>
-                        <button class="signin-button">Login</button>
+                        <button class="signin-button" type="submit" name="login">Login</button>
                 </form>
         <div class="link">
             <a href="#">Forgot password?</a> or <a href="#">Sign up</a>
