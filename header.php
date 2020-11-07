@@ -10,7 +10,7 @@
   <body>
     <nav>
       <ul>
-<li class="logo"><img id="cmslogo" src="cstslogo.png" alt=""></li>
+<li class="logo"><img id="cmslogo" src="img/cstslogo.png" alt=""></li>
 <li class="btn"><span class="fas fa-bars"></span></li>
 <div class="items">
 <li><a href="#">Home</a></li>
