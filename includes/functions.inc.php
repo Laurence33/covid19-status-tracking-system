@@ -301,3 +301,34 @@ function getLatestSurveillances($conn) {
     }
 }
 
+function getAddress($conn, $prov_code, $citymun_code, $brgy_code) {
+
+    $sql = "SELECT tbl_province.prov_desc, tbl_citymun.citymun_desc, tbl_brgy.brgy_desc FROM tbl_province, tbl_citymun, tbl_brgy WHERE tbl_province.prov_code = $prov_code AND tbl_citymun.citymun_code = $citymun_code AND tbl_brgy.brgy_code = $brgy_code;";
+    $resultsData = mysqli_query($conn, $sql);
+    if(!$resultsData) {
+        //Error
+        return null;
+    }else {
+        return $resultsData;
+    }
+}
+
+function addCase($conn, $prov_code, $citymun_code, $brgy_code, $status, $fname, $lname, $age) {
+    $sql = "INSERT INTO `tbl_case` (status, brgy_code, citymun_code, prov_code, fname, lname, age) VALUES ('$status', '$brgy_code', '$citymun_code', '$prov_code', '$fname', '$lname', $age);";
+    if(!$result = mysqli_query($conn, $sql)) {
+        //error
+        exit(mysqli_error($conn));
+    }
+
+    return $result;
+}
+
+function addSurveillance($conn, $prov_code, $citymun_code, $brgy_code, $status, $fname, $lname, $age) {
+    $sql = "INSERT INTO `tbl_sur` (status, brgy_code, citymun_code, prov_code, fname, lname, age) VALUES ('$status', '$brgy_code', '$citymun_code', '$prov_code', '$fname', '$lname', $age);";
+    if(!$result = mysqli_query($conn, $sql)) {
+        //error
+        exit(mysqli_error($conn));
+    }
+
+    return $result;
+}
