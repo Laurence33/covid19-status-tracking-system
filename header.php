@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.min.css">
   </head>
   <body>
     <nav>
       <ul>
-<li class="logo"><img id="cmslogo" src="img/cstslogo.png" alt=""></li>
+<li class="logo"><img id="cmslogo" src="img/logo.png" alt="" width="50px" height="50px"></li>
 <li class="btn"><span class="fas fa-bars"></span></li>
 <div class="items">
 <li><a href="#">Home</a></li>

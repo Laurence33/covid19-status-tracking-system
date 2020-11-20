@@ -5,7 +5,7 @@
     }
 
     include '../../includes/dbh.inc.php';
-    include '../../includes/functions.inc.php';
+    include 'admin-functions.inc.php';
 
     $prov_code = $_POST['prov_code'];
     $citymun_code = $_POST['citymun_code'];

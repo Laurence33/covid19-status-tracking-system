@@ -61,7 +61,6 @@
             <th>Status</th>
             <th>Age</th>
             <th>First Name</th>
-            <th>Middle Name</th>
             <th>Last Name</th>
         </tr>
     </thead>
@@ -70,12 +69,11 @@
             while($row = mysqli_fetch_assoc($caseRes)) {
         ?>
         <tr data-toggle="modal" data-target="#editModal" class="pointer"
-            onclick=" getUserDetails(<?php echo $row['id']?>, '<?php echo $row['status']?>', '<?php echo $row['age']?>', '<?php echo $row['lname'].', '.$row['fname'].' '.$row['mname']?>', 'Case');">
+            onclick=" getUserDetails(<?php echo $row['id']?>, '<?php echo $row['status']?>', '<?php echo $row['age']?>', '<?php echo $row['lname'].', '.$row['fname'].' '?>', 'Case');">
             <th><?php echo $row['id']; ?></th>
             <td><?php echo $row['status']; ?></td>
             <td><?php echo $row['age']; ?></td>
             <td><?php echo $row['fname']; ?></td>
-            <td><?php echo $row['mname']; ?></td>
             <td><?php echo $row['lname']; ?></td>
         </tr>
         <?php
@@ -95,7 +93,6 @@
             <th>Status</th>
             <th>Age</th>
             <th>First Name</th>
-            <th>Middle Name</th>
             <th>Last Name</th>
         </tr>
     </thead>
@@ -105,12 +102,11 @@
         ?>
 
         <tr data-toggle="modal" data-target="#editModal" class="pointer"
-            onclick=" getUserDetails(<?php echo $row['id']?>, '<?php echo $row['status']?>', '<?php echo $row['age']?>', '<?php echo $row['lname'].', '.$row['fname'].' '.$row['mname']?>', 'Surveillance');">
+            onclick=" getUserDetails(<?php echo $row['id']?>, '<?php echo $row['status']?>', '<?php echo $row['age']?>', '<?php echo $row['lname'].', '.$row['fname'].' '?>', 'Surveillance');">
             <th><?php echo $row['id']; ?></th>
             <td><?php echo $row['status']; ?></td>
             <td><?php echo $row['age']; ?></td>
             <td><?php echo $row['fname']; ?></td>
-            <td><?php echo $row['mname']; ?></td>
             <td><?php echo $row['lname']; ?></td>
         </tr>
         <?php

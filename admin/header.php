@@ -8,6 +8,12 @@
     <script src="../jquery/jquery.min.js"></script>
 </head>
 <body>
+  <style>
+
+    .pointer:hover {
+      cursor: pointer;
+    }
+  </style>
     
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">COVID-19 Status Tracking Sytem</a>

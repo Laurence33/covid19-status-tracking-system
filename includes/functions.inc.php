@@ -312,23 +312,3 @@ function getAddress($conn, $prov_code, $citymun_code, $brgy_code) {
         return $resultsData;
     }
 }
-
-function addCase($conn, $prov_code, $citymun_code, $brgy_code, $status, $fname, $lname, $age) {
-    $sql = "INSERT INTO `tbl_case` (status, brgy_code, citymun_code, prov_code, fname, lname, age) VALUES ('$status', '$brgy_code', '$citymun_code', '$prov_code', '$fname', '$lname', $age);";
-    if(!$result = mysqli_query($conn, $sql)) {
-        //error
-        exit(mysqli_error($conn));
-    }
-
-    return $result;
-}
-
-function addSurveillance($conn, $prov_code, $citymun_code, $brgy_code, $status, $fname, $lname, $age) {
-    $sql = "INSERT INTO `tbl_sur` (status, brgy_code, citymun_code, prov_code, fname, lname, age) VALUES ('$status', '$brgy_code', '$citymun_code', '$prov_code', '$fname', '$lname', $age);";
-    if(!$result = mysqli_query($conn, $sql)) {
-        //error
-        exit(mysqli_error($conn));
-    }
-
-    return $result;
-}

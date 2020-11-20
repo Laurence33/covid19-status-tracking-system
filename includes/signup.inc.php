@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_POST['signup'])) { // if the signup button is not pressed
+if (!isset($_POST['signup'])) { // if the signup button is not pressed
     header("location: ../signup.php"); // redirect to the signup page
     exit(); // stop executing the script
 }

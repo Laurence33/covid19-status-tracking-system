@@ -1,7 +1,3 @@
-<?php
-    include_once 'header.php';
-?>
-
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
@@ -37,7 +33,6 @@
              Not a member? <a href="#">Signup now</a></div>
 </form>
 </div>
-</body>
 
 
 <?php
