@@ -56,7 +56,7 @@
         <?php
             while($row = mysqli_fetch_assoc($caseRes)) {
         ?>
-        <tr data-toggle="modal" data-target="#editCaseModal" class="pointer"
+        <tr data-toggle="modal" data-target="#editModal" class="pointer"
             onclick=" getCaseDetails(<?php echo $row['id']?>, '<?php echo $row['status']?>', '<?php echo $row['age']?>', '<?php echo $row['fname']?>', '<?php echo $row['lname']?>', 'Case');">
             <th><?php echo $row['id']; ?></th>
             <td><?php echo $row['status']; ?></td>
@@ -91,7 +91,7 @@
             while($row = mysqli_fetch_assoc($surRes)) {
         ?>
 
-        <tr data-toggle="modal" data-target="#editCaseModal" class="pointer"
+        <tr data-toggle="modal" data-target="#editModal" class="pointer"
             onclick=" getCaseDetails(<?php echo $row['id']?>, '<?php echo $row['status']?>', '<?php echo $row['age']?>', '<?php echo $row['fname']?>', '<?php echo $row['lname']?>', 'Surveillance');">
             <th><?php echo $row['id']; ?></th>
             <td><?php echo $row['status']; ?></td>
@@ -112,7 +112,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Add Case</h5>
+            <h5 class="modal-title" id="addModalTitle">Add Case</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
@@ -279,13 +279,13 @@
     </div>
 </form>
 
-<!-- Edit Case Modal -->
-<form action="process/edit-case.php" method="POST" id="edit-form">
-    <div class="modal fade" id="editCaseModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<!-- Edit Case/Surveillance Modal -->
+<form action="changed with JQuery" method="POST" id="edit-form">
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="editModalTitle">Edit Case</h5>
+            <h5 class="modal-title" id="editModalTitle">This will be changed with the JQuery</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
@@ -302,7 +302,7 @@
                         <option value="Death">Death</option> -->
                     </select>
                     <div class="input-group-append">
-                        <label class="input-group-text" for="editCaseSelectStatus">Status</label>
+                        <label class="input-group-text" for="editSelectStatus">Status</label>
                     </div>
                 </div>
             </div>
@@ -325,11 +325,11 @@
             <div class="row">
                 <div class="col input-group mb-3">
                     <input type="hidden" value="<?php echo $prov_code?>"  name="prov_code">
-                    <select class="custom-select" id="editSurSelectProvince" disabled>
+                    <select class="custom-select" id="editSelectProvince" disabled>
                         <option><?php echo $address['prov_desc'] ?></option>
                     </select>
                     <div class="input-group-append">
-                        <label class="input-group-text" for="editSurSelectProvince">Province</label>
+                        <label class="input-group-text" for="editSelectProvince">Province</label>
                     </div>
                 </div>
             </div>
@@ -337,11 +337,11 @@
             <div class="row">
                 <div class="col input-group mb-3">
                     <input type="hidden" value="<?php echo $citymun_code ?>" name="citymun_code">
-                    <select class="custom-select" id="editSurSelectCitymun" disabled>
+                    <select class="custom-select" id="editSelectCitymun" disabled>
                         <option><?php echo $address['citymun_desc'] ?></option>
                     </select>
                     <div class="input-group-append">
-                        <label class="input-group-text" for="editSurSelectCitymun">City/Municipality</label>
+                        <label class="input-group-text" for="editSelectCitymun">City/Municipality</label>
                     </div>
                 </div>
             </div>
@@ -349,105 +349,17 @@
             <div class="row">
                 <div class="col input-group mb-3">
                     <input type="hidden" value="<?php echo $brgy_code ?>" name="brgy_code">
-                    <select class="custom-select" id="editSurSelectBrgy" disabled>
+                    <select class="custom-select" id="editSelectBrgy" disabled>
                         <option><?php echo $address['brgy_desc'] ?></option>
                     </select>
                     <div class="input-group-append">
-                        <label class="input-group-text" for="editSurSelectBrgy">Brgy</label>
+                        <label class="input-group-text" for="editSelectBrgy">Brgy</label>
                     </div>
                 </div>
             </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" id="submit-button" name="" class="btn btn-primary">Save Changes</button>
-            </div>
-        </div>
-    </div>
-    </div>
-</form>
-
-<!-- Edit Surveillance Modal -->
-<form action="process/edit-sur.php" method="POST">
-    <div class="modal fade" id="editSurModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Edit Case</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <input type="hidden" name="id">
-            <!-- Status Select -->
-            <div class="row">
-                <div class="col input-group mb-3">
-                    <select class="custom-select" id="editCaseSelectStatus" name="status">
-                        <!-- <option selected>Choose...</option> -->
-                        <option value="Suspect">Suspect</option>
-                        <option value="Probable">Probable</option>
-                        <option value="Confirmed">Confirmed</option>
-                        <option value="Contact">Contact</option>
-                    </select>
-                    <div class="input-group-append">
-                        <label class="input-group-text" for="editCaseSelectStatus">Status</label>
-                    </div>
-                </div>
-            </div>
-            <!-- First name, Last name, age -->
-            <div class="row">
-                <div class="input-group mb-3">
-                    <div class="col col-md-5">
-                    <input type="text" class="form-control" placeholder="First name" name="fname">
-                    </div>
-                    <div class="col col-md-5">
-                    <input type="text" class="form-control" placeholder="Last name" name="lname">
-                    </div>
-                    <div class="col col-md-2">
-                    <input type="text" class="form-control" placeholder="Age" name="age">
-                    </div>
-                </div>
-            </div>
-            <!-- Address Select -->
-                <!-- Select Province -->
-            <div class="row">
-                <div class="col input-group mb-3">
-                    <input type="hidden" value="<?php echo $prov_code?>"  name="prov_code">
-                    <select class="custom-select" id="editSurSelectProvince" disabled>
-                        <option><?php echo $address['prov_desc'] ?></option>
-                    </select>
-                    <div class="input-group-append">
-                        <label class="input-group-text" for="editSurSelectProvince">Province</label>
-                    </div>
-                </div>
-            </div>
-                <!-- Select Citymun -->
-            <div class="row">
-                <div class="col input-group mb-3">
-                    <input type="hidden" value="<?php echo $citymun_code ?>" name="citymun_code">
-                    <select class="custom-select" id="editSurSelectCitymun" disabled>
-                        <option><?php echo $address['citymun_desc'] ?></option>
-                    </select>
-                    <div class="input-group-append">
-                        <label class="input-group-text" for="editSurSelectCitymun">City/Municipality</label>
-                    </div>
-                </div>
-            </div>
-                <!-- Select Barangay -->
-            <div class="row">
-                <div class="col input-group mb-3">
-                    <input type="hidden" value="<?php echo $brgy_code ?>" name="brgy_code">
-                    <select class="custom-select" id="editSurSelectBrgy" disabled>
-                        <option><?php echo $address['brgy_desc'] ?></option>
-                    </select>
-                    <div class="input-group-append">
-                        <label class="input-group-text" for="editSurSelectBrgy">Brgy</label>
-                    </div>
-                </div>
-            </div>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" name="edit-sur" class="btn btn-primary">Save Changes</button>
+                <button type="submit" id="edit-submit-button" name="changed with JQuery" class="btn btn-primary">Save Changes</button>
             </div>
         </div>
     </div>
@@ -470,12 +382,12 @@
         $("#hiddenid").val(id);
         $('#editModalTitle').text("Edit " + type);
         if(type == "Case") {
-            $('#submit-button').attr('name', 'edit-case');
+            $('#edit-submit-button').attr('name', 'edit-case');
             $('#edit-form').attr('action', 'process/edit-case.php');
             $("#editSelectStatus").empty();
             $("#editSelectStatus").append('<option value="Active">Active</option><option value="Recovery">Recovery</option><option value="Death">Death</option>');
         }else if(type = "Surveillance") {
-            $('#submit-button').attr('name', 'edit-sur');
+            $('#edit-submit-button').attr('name', 'edit-sur');
             $('#edit-form').attr('action', 'process/edit-sur.php');
             $("#editSelectStatus").empty();
             $("#editSelectStatus").append('<option value="Suspect">Suspect</option><option value="Probable">Probable</option><option value="Confirmed">Confirmed</option><option value="Contact">Contact</option>');
