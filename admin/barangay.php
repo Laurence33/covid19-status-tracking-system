@@ -359,6 +359,7 @@
             </div>
             </div>
             <div class="modal-footer">
+                <a href="" id="delete-link" class="btn btn-link text-danger">Delete</a>
                 <button type="submit" id="edit-submit-button" name="changed with JQuery" class="btn btn-primary">Save Changes</button>
             </div>
         </div>
@@ -381,6 +382,7 @@
         $('input[name="lname"]').val(lname);
         $("#hiddenid").val(id);
         $('#editModalTitle').text("Edit " + type);
+        $("#delete-link").attr('href', 'process/delete-record.php?id=' + id + '&type=' + type + '<?php echo '&prov_code='.$prov_code.'&citymun_code='.$citymun_code.'&brgy_code='.$brgy_code?>');
         if(type == "Case") {
             $('#edit-submit-button').attr('name', 'edit-case');
             $('#edit-form').attr('action', 'process/edit-case.php');

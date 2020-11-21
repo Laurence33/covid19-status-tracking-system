@@ -37,3 +37,18 @@ function editSur($conn, $id, $status, $age, $fname, $lname, $prov_code, $citymun
     }
     return $result;
 }
+
+function deleteRecord($conn, $id, $type) {
+    if($type == "Case") {
+        $table = "tbl_case";
+    }else if($type == "Surveillance"){
+        $table = "tbl_sur";
+    }
+
+    $sql = "DELETE FROM $table WHERE id = $id;";
+    if(!$result = mysqli_query($conn, $sql)) {
+        //error
+        exit(mysqli_error($conn));
+    }
+    return $result;
+}

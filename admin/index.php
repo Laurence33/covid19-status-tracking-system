@@ -1,9 +1,14 @@
 <?php
     include_once 'header.php';
     session_start();
+    if(!$_SESSION['username'] || !$_SESSION['userUid']) {
+        header("location: ../");
+        exit();
+    }
 ?>
 
 <?php
+
     include_once '../includes/dbh.inc.php';
     include '../includes/functions.inc.php';
 
