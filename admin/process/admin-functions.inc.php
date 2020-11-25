@@ -52,3 +52,18 @@ function deleteRecord($conn, $id, $type) {
     }
     return $result;
 }
+
+// Manipulating number records
+
+function updateRecord($conn, $table, $code_name, $code, $column, $count) {
+    if($count == 1) {
+        $sql = "UPDATE $table SET $column = $column + 1 WHERE $code_name = '$code';";
+    }else if($count == -1) {
+        $sql = "UPDATE $table SET $column = $column - 1 WHERE $code_name = '$code';";
+    }
+    if(!$result = mysqli_query($conn, $sql)) {
+        //error
+        exit(mysqli_error($conn));
+    }
+    return $result;
+}
