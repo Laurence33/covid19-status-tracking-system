@@ -20,19 +20,47 @@
         exit();
     }
 ?>
+<div class="container-fluid text-center mt-4">
+    <div class="container">
+    <h2 > <?php echo $region['reg_desc'] ?> </h2>
+    <h6 class="text-secondary"> Region </h6>
+    </div>
 
-<section>
-<h1><?php echo $region['reg_desc']; ?></h1>
-<h3><?php echo $region['island_group']; ?></h3>
-<h3>Active Cases: <?php echo $region['num_cases']; ?></h3>
-<h3>Region: <?php echo $region['num_active']; ?></h3>
-<h3>Recoveries: <?php echo $region['num_recoveries']; ?></h3>
-<h3>Deaths: <?php echo $region['num_deaths']; ?></h3>
-<h3>Surveillances: <?php echo $region['num_surveillances'] ?></h3>
-</section>
-
-<br><br>
-<h2>Provinces</h2>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+        <div class="grid mt-4 mb-3">
+            <div class="row">
+                <div class="col md-3">
+                    <h4>Total Cases</h4>
+                    <p><?php echo $region['num_cases'] ;?></p>
+                </div>
+                <div class="col md-3">
+                    <h4>Active Cases</h4>
+                    <p><?php echo $region['num_active'] ; ?> </p>
+                </div>
+                <div class="col md-3">
+                    <h4>Recovered</h4>
+                    <p><?php echo $region['num_recoveries'] ; ?></p>
+                </div>
+                <div class="col md-3">
+                    <h4>Deaths</h4>
+                    <p><?php echo $region['num_deaths'] ; ?></p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+            <div class="col md-12">
+                    <h4>Surveillances</h4>
+                    <p><?php echo $region['num_surveillances'] ; ?></p>
+                </div>
+            </div>
+        </div>
+        </li>
+    </ul>
+</div>
+<div class="container-fluid bg-dark text-center pt-3 pb-3 mb-4">
+    <h2 class="text-white">Provinces</h2>
+</div>
 <table class="table table-hover">
     <thead>
         

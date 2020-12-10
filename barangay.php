@@ -26,36 +26,49 @@
         exit();
     }
 ?>
-<style>
-    .pointer:hover {
-        cursor: pointer;
-    }
-</style>
-<span>
-    <a href="region.php/reg=<?php echo $brgy['reg_code']; ?>">Region Description</a>
-    >
-    <a href="province.php/code=<?php echo $brgy['prov_code']; ?>">Province Description</a>
-    >
-    <a href="citymun.php/code=<?php echo $brgy['citymun_code']; ?>">City/Mun Description</a>
-    >
-    <?php echo $brgy['brgy_desc']; ?>
-</span>
+<div class="container-fluid text-center mt-4">
+    <div class="container">
+    <h2 > <?php echo $brgy['brgy_desc'] ?> </h2>
+    <h6 class="text-secondary"> City/Municipality </h6>
+    </div>
 
-<br><br>
-<section>
-<h1><?php echo $brgy['brgy_desc']; ?></h1>
-<h3>Cases: <?php echo $brgy['num_cases']; ?></h3>
-<h3>Active Cases: <?php echo $brgy['num_active']; ?></h3>
-<h3>Recoveries: <?php echo $brgy['num_recoveries']; ?></h3>
-<h3>Deaths: <?php echo $brgy['num_deaths']; ?></h3>
-<h3>Surveillances: <?php echo $brgy['num_surveillances']; ?></h3>
-</section>
-
-<br><br>
-<h2>Cases</h2>
-
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+        <div class="grid mt-4 mb-3">
+            <div class="row">
+                <div class="col md-3">
+                    <h4>Total Cases</h4>
+                    <p><?php echo $brgy['num_cases'] ;?></p>
+                </div>
+                <div class="col md-3">
+                    <h4>Active Cases</h4>
+                    <p><?php echo $brgy['num_active'] ; ?> </p>
+                </div>
+                <div class="col md-3">
+                    <h4>Recovered</h4>
+                    <p><?php echo $brgy['num_recoveries'] ; ?></p>
+                </div>
+                <div class="col md-3">
+                    <h4>Deaths</h4>
+                    <p><?php echo $brgy['num_deaths'] ; ?></p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+            <div class="col md-12">
+                    <h4>Surveillances</h4>
+                    <p><?php echo $brgy['num_surveillances'] ; ?></p>
+                </div>
+            </div>
+        </div>
+        </li>
+    </ul>
+</div>
+<div class="container-fluid bg-dark text-center pt-3 pb-3 mb-4">
+    <h2 class="text-white">Cases</h2>
+</div>
 <table class="table table-hover table-striped table-bordered table-sm">
-    <thead class="thead-dark">
+    <thead class="thead">
         <tr>
             <th>ID</th>
             <th>Status</th>
@@ -83,11 +96,11 @@
 </table>
 
 
-
-<br><br><br>
-<h2>Surveillances</h2>
+<div class="container-fluid bg-dark text-center pt-3 pb-3 mb-4 mt-5">
+    <h2 class="text-white">Surveillances</h2>
+</div>
 <table class="table table-hover table-striped table-bordered table-sm">
-    <thead class="thead-dark">
+    <thead class="thead">
         <tr>
             <th>ID</th>
             <th>Status</th>

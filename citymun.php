@@ -20,27 +20,47 @@
         exit();
     }
 ?>
+<div class="container-fluid text-center mt-4">
+    <div class="container">
+    <h2 > <?php echo $citymun['citymun_desc'] ?> </h2>
+    <h6 class="text-secondary"> City/Municipality </h6>
+    </div>
 
-<span>
-    <a href="region.php?code=reg_code">Region Description</a> <!-- get the reg code using joined tables-->
-    >
-    <a href="province.php?code=<?php echo $citymun['prov_code']; ?>">Province Description</a>
-    >
-    <?php echo $citymun['citymun_desc']; ?>
-</span>
-
-<br><br>
-<section>
-<h1><?php echo $citymun['citymun_desc']; ?></h1>
-<h3>Cases: <?php echo $citymun['num_cases']; ?></h3>
-<h3>Active Cases: <?php echo $citymun['num_active']; ?></h3>
-<h3>Recoveries: <?php echo $citymun['num_recoveries']; ?></h3>
-<h3>Deaths: <?php echo $citymun['num_deaths']; ?></h3>
-<h3>Surveillances: <?php echo $citymun['num_surveillances']; ?></h3>
-</section>
-
-<br><br>
-<h2>Barangays</h2>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+        <div class="grid mt-4 mb-3">
+            <div class="row">
+                <div class="col md-3">
+                    <h4>Total Cases</h4>
+                    <p><?php echo $citymun['num_cases'] ;?></p>
+                </div>
+                <div class="col md-3">
+                    <h4>Active Cases</h4>
+                    <p><?php echo $citymun['num_active'] ; ?> </p>
+                </div>
+                <div class="col md-3">
+                    <h4>Recovered</h4>
+                    <p><?php echo $citymun['num_recoveries'] ; ?></p>
+                </div>
+                <div class="col md-3">
+                    <h4>Deaths</h4>
+                    <p><?php echo $citymun['num_deaths'] ; ?></p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+            <div class="col md-12">
+                    <h4>Surveillances</h4>
+                    <p><?php echo $citymun['num_surveillances'] ; ?></p>
+                </div>
+            </div>
+        </div>
+        </li>
+    </ul>
+</div>
+<div class="container-fluid bg-dark text-center pt-3 pb-3 mb-4">
+    <h2 class="text-white">Barangays</h2>
+</div>
 <table class="table table-hover">
     <thead>
         <tr>

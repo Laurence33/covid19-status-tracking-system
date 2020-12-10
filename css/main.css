@@ -1,0 +1,109 @@
+.pointer:hover {
+    cursor: pointer;
+}
+
+.jumbotron {
+    background: url('../img/covid19-2.jpg');
+    background-position-y: -5%;
+    background-position-x:10%;
+    background-size: 200vw 200vh;
+    height: 50vh;
+    margin-bottom: 0;
+}
+
+.card-header img {
+    margin-top: -5px;
+}
+
+.top-3-num {
+    font-family:'Comic Sans';
+    font-size: 18pt;
+    font-weight: 700;
+    height: 60px;
+    width: 70px;
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    margin-top: 1em;
+    margin-right: 2em;
+    padding-top: .5em;
+    border-radius: 35px;
+    outline: 5px solid white;
+    outline-offset: -10px;
+}
+
+
+/* Footer */
+ul {
+    margin: 0;
+}
+.footer-h3{
+	padding-top: 5px;
+	text-align: center;
+	color: #fff;
+}
+.footer{
+	padding-top: 10px;
+	color: #fff;
+	height: 120px;
+	position: relative;
+}
+.footer .footer-content{
+	padding-top: 10px;
+	font-size: 20px;
+	text-align: center;
+	/* height: 263px; */
+	display: flex;
+}
+.footer .footer-content .footer-section{
+	flex: 1;
+}
+
+.footer .footer-bottom .footer-section{
+	flex: 1;
+}
+.footer .footer-bottom{
+	text-align: center;
+	display: flex;
+	height: 34px;
+	width: 100%;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	padding-top: 7px;
+	font-size: 15px;
+}
+.footer .footer-bottom .menus ul a{
+	color: white;
+	padding: 8px;
+	margin-bottom: 2px;
+	font-size: 16px;
+	text-decoration: none;
+	transition: all .5s;
+}
+.footer .footer-bottom .menus ul a:hover{
+	color: blue;
+	margin-left: 15px;
+	transition: all .5s;
+}
+.footer .footer-bottom .secondb .socials a{
+	width: 34px;
+	height: 21px;
+	margin-right: 1px;
+	padding-bottom: 2px;
+	text-align: center;
+	display: inline-block;
+	font-size: 20px;
+	border-radius: 1px;
+	transition: all .5s;
+	color: white;
+}
+.footer .footer-bottom .secondb .socials a:hover{
+	border: 1px solid white;
+	color: white;
+	transition: all .5s;
+}
+.footer .footer-bottom .thirdb .copyright{
+    font-size: 17px;
+    height: 30px;
+}

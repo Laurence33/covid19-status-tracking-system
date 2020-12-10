@@ -1,48 +1,34 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COVID19 Status Tracking System</title>
-    <link rel="stylesheet" type="text/css" id="applicationStylesheet" href="css/login.css"/>
+    <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.min.css">
+    <title>Admin Login</title>
+    <style>
+        body {
+            background-color: #343a40;
+        }
+        .form {
+            width: 300px;
+            margin-top: 12em;
+        }                                                   
+    </style>
 </head>
 <body>
-    
-<div class="wrapper">
-      <div class="title">Login</div>
-<form action="includes/login.inc.php" method="post"">
-        <div class="field">
-          <input type="username" placeholder="username" name="uname" required>
-          <label>Email Address</label>
+    <div class="container-fluid">
+        <div class="form text-center mx-auto">
+            <img class="mb-3" src="img/covid-check-white.png" width="150px" height="150px" alt="Covid-check-logo">
+            <form action="includes/login.inc.php" method="POST">
+                <div class="form-group">
+                    <input class="form-control" type="text" placeholder="Username" name="uname">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="password" placeholder="Password" name="pword">
+                </div>
+                <button class="btn btn-primary mt-2" type="submit" name="login">Login</button>
+            </form>
         </div>
-          <div class="field">
-          <input  type="password"  placeholder="password" name="pword">
-          <label>Password</label>
-        </div>
-            <div class="content">
-          <div class="checkbox">
-            <input type="checkbox" id="remember-me">
-            <label for="remember-me">Remember me</label>
-          </div>
-            <div class="pass-link">
-                 <a href="#">Forgot password?</a></div>
-            </div>
-            <div class="field">
-                <input type="submit" name="login" value="Login">
-             </div>
-            <div class="signup-link">
-             Not a member? <a href="#">Signup now</a></div>
-</form>
-</div>
-
-
-<?php
-    if(isset($_GET['login'])) {
-        if($_GET['login'] == 'error') {
-            echo '<h3>Incorrect Username or Password</h3>';
-        }
-    }
-?>
-
-<?php   
-    include_once 'footer.php';
-?>
+    </div>
+</body>
+</html>
