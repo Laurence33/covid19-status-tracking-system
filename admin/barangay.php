@@ -12,6 +12,13 @@
     $citymun_code = $_GET['citymun_code'];
     $brgy_code = $_GET['brgy_code'];
 
+    if(!$brgyRes = getBarangay($conn, $brgy_code)) {
+        //error
+        exit(mysqli_error($conn));
+    }
+    $brgy = mysqli_fetch_assoc($brgyRes);
+
+
     $addressRes = getAddress($conn, $prov_code, $citymun_code, $brgy_code);
 
     if(!$addressRes) {
@@ -36,12 +43,56 @@
     }
 ?>
 
+<div class="container-fluid text-center mt-4">
+    <div class="container">
+    <h2 > <?php echo $brgy['brgy_desc'] ?> </h2>
+    <h6 class="text-secondary"> Barangay </h6>
+    </div>
 
-<h2>Cases</h2>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal" 
-  onclick="addModalToggle('Case')">
-  Add New
-</button>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+        <div class="grid mt-4 mb-3">
+            <div class="row">
+                <div class="col md-3">
+                    <h4>Total Cases</h4>
+                    <p><?php echo $brgy['num_cases'] ;?></p>
+                </div>
+                <div class="col md-3">
+                    <h4>Active Cases</h4>
+                    <p><?php echo $brgy['num_active'] ; ?> </p>
+                </div>
+                <div class="col md-3">
+                    <h4>Recovered</h4>
+                    <p><?php echo $brgy['num_recoveries'] ; ?></p>
+                </div>
+                <div class="col md-3">
+                    <h4>Deaths</h4>
+                    <p><?php echo $brgy['num_deaths'] ; ?></p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+            <div class="col md-12">
+                    <h4>Surveillances</h4>
+                    <p><?php echo $brgy['num_surveillances'] ; ?></p>
+                </div>
+            </div>
+        </div>
+        </li>
+    </ul>
+</div>
+
+<div class="container-fluid bg-dark text-center pt-3 pb-3 mb-4">
+    <h2 class="text-white">Cases</h2>
+</div>
+
+<div class="container text-center mb-4">
+    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#addModal" 
+    onclick="addModalToggle('Case')">
+    Add New
+    </button>
+</div>
+
 
 <table class="table table-hover table-striped table-bordered table-sm">
     <thead class="thead-dark">
@@ -72,12 +123,15 @@
 </table>
 
 
-<br><br><br>
-<h2>Surveillances</h2>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal"
-  onclick="addModalToggle('Surveillance')">
-  Add New
-</button>
+<div class="container-fluid bg-dark text-center pt-3 pb-3 mb-4 mt-5">
+    <h2 class="text-white">Surveillances</h2>
+</div>
+<div class="container text-center mb-4">
+    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#addModal"
+      onclick="addModalToggle('Surveillance')">
+      Add New
+    </button>
+</div>
 <table class="table table-hover table-striped table-bordered table-sm">
     <thead class="thead-dark">
         <tr>

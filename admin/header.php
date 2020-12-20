@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>COVID19 Status Tracking System</title>
+    <title>COVID-Check Admin</title>
     <link rel="stylesheet" href="../bootstrap-4.4.1-dist/css/bootstrap.min.css">
     <script src="../jquery/jquery.min.js"></script>
 </head>
@@ -16,7 +16,7 @@
   </style>
     
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">COVID-19 Status Tracking Sytem</a>
+  <a class="navbar-brand" href="#">COVID-Check Admin</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

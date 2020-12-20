@@ -30,11 +30,11 @@
         <?php
             while($row = mysqli_fetch_array($brgyRes)) {
         ?>
-        <div class="card bg-light mb-3 m-3" style="max-width: 18rem;">
+        <div class="card mb-3 m-3" style="max-width: 18rem;">
             <div class="card-header">Barangay</div>
             <div class="card-body">
                 <h5 class="card-title"><?php echo $row['brgy_desc'] ?></h5>
-                <p class="card-text">Put the records here</p>
+                <!-- <p class="card-text">Put the records here</p> -->
                 <ul class="card-body list-group list-group-flush">
                     <li class="list-group-item card-text">Cases: <?php echo $row['num_cases']?></li>
                     <li class="list-group-item card-text">Surveillances: <?php echo $row['num_surveillances']?></li>

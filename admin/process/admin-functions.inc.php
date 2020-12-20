@@ -144,12 +144,12 @@ function editSur($conn, $id, $status, $age, $fname, $lname, $prov_code, $citymun
         // delete the record on tbl_sur
         deleteRecord($conn, $id, "Surveillance");
 
-        // reduce num_suveillances
-        updateRecord($conn, "tbl_brgy", "brgy_code", $brgy_code, "num_surveillances", -1);
-        updateRecord($conn, "tbl_citymun", "citymun_code", $citymun_code, "num_surveillances", -1);
-        updateRecord($conn, "tbl_province", "prov_code", $prov_code, "num_surveillances", -1);
-        $reg_code = getRegionCode($conn, $prov_code);
-        updateRecord($conn, "tbl_region", "reg_code", $reg_code, "num_surveillances", -1);
+        // // reduce num_suveillances
+        // updateRecord($conn, "tbl_brgy", "brgy_code", $brgy_code, "num_surveillances", -1);
+        // updateRecord($conn, "tbl_citymun", "citymun_code", $citymun_code, "num_surveillances", -1);
+        // updateRecord($conn, "tbl_province", "prov_code", $prov_code, "num_surveillances", -1);
+        // $reg_code = getRegionCode($conn, $prov_code);
+        // updateRecord($conn, "tbl_region", "reg_code", $reg_code, "num_surveillances", -1);
 
         // add the case to tbl_cases using addCase()
         if(!$result = addCase($conn, $prov_code, $citymun_code, $brgy_code, "Active", $fname, $lname, $age)) {

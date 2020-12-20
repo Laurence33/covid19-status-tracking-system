@@ -29,7 +29,7 @@
 <div class="container-fluid text-center mt-4">
     <div class="container">
     <h2 > <?php echo $brgy['brgy_desc'] ?> </h2>
-    <h6 class="text-secondary"> City/Municipality </h6>
+    <h6 class="text-secondary"> Barangay </h6>
     </div>
 
     <ul class="list-group list-group-flush">

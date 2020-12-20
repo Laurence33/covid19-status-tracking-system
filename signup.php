@@ -6,7 +6,7 @@
     <h2>Signup</h2>
     <form action="includes/signup.inc.php" method="post">
         <label for="uname">Username:</label>
-        <input type="text" name="uname" placeholder="Username..."> 
+        <input type="text" name="uname" placeholder="Username..." autofocus> 
         <br><br>
         <label for="pword">Password:</label>
         <input type="password" name="pword" placeholder="Password...">
