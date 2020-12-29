@@ -14,5 +14,3 @@ CREATE TABLE tbl_case (
     `age` int(3) NOT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8;
-
-INSERT INTO `tbl_case` (status, brgy_code, citymun_code, prov_code, fname, lname, age) VALUES ('active', '012801001', '012801', '0128', 'Antonio', 'Guimaras', 43);

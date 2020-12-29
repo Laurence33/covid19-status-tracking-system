@@ -3,7 +3,7 @@
 $serverName = "localhost";
 $dbUsername = "root";
 $dbPassword = "";
-$dbName = "practice"; // This is the name of the databse in MySQL, you have to create this using PHPmyAdmin first.
+$dbName = "covidcheck"; // This is the name of the databse in MySQL, you have to create this using PHPmyAdmin first.
 
 $conn = mysqli_connect($serverName, $dbUsername, $dbPassword, $dbName); // Try to connect with the database and save the connection to $conn
 
