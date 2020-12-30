@@ -103,7 +103,7 @@
         }else if(type == "Surveillance") {
             $('input[name=type]').val("Surveillance");
             //repopulate options using append()
-            $('#addSelectStatus').append('<option value="Suspect">Suspect</option><option value="Probable">Probable</option><option value="Confirmed">Confirmed</option><option value="Contact">Contact</option>');
+            $('#addSelectStatus').append('<option value="Suspect">Suspect</option><option value="Probable">Probable</option><option value="Contact">Contact</option>');
         }
     }
 
